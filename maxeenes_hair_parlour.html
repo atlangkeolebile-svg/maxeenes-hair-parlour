@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maxeene's Hair Parlour</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rose:#D4A5A5;
+  --rose-light:#EDD8D8;
+  --rose-dark:#B88080;
+  --charcoal:#2C2C2C;
+  --charcoal-mid:#555;
+  --bg:#FAF8F5;
+  --bg-card:#FFF;
+  --border:#E8E0DC;
+  --green:#7BAE7F;
+  --amber:#C9973A;
+  --red:#B85C5C;
+  --radius:12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--charcoal);font-size:15px;line-height:1.6}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400}
+
+nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 2rem}
+.nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:0.05em;color:var(--charcoal)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{text-decoration:none;color:var(--charcoal-mid);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--rose-dark)}
+
+.section{max-width:1000px;margin:0 auto;padding:5rem 2rem}
+
+/* HERO */
+.hero{text-align:center;padding:7rem 2rem 5rem;max-width:1000px;margin:0 auto}
+.hero h1{font-size:clamp(3rem,8vw,5.5rem);line-height:1.05;letter-spacing:-0.01em;color:var(--charcoal);margin-bottom:1.2rem}
+.hero h1 em{font-style:italic;color:var(--rose-dark)}
+.hero p{font-size:1rem;color:var(--charcoal-mid);max-width:480px;margin:0 auto 2.5rem;line-height:1.8}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--charcoal);color:#fff;border:none;padding:0.8rem 2rem;border-radius:2rem;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background 0.2s}
+.btn-primary:hover{background:#444}
+.btn-outline{background:transparent;color:var(--charcoal);border:1px solid var(--border);padding:0.8rem 2rem;border-radius:2rem;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.btn-outline:hover{border-color:var(--rose);color:var(--rose-dark)}
+
+.divider{width:60px;height:1px;background:var(--rose);margin:0 auto 3rem}
+
+/* BOOKING */
+#booking .section-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:0.5rem}
+#booking h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:0.5rem}
+#booking .subtitle{color:var(--charcoal-mid);margin-bottom:2.5rem;font-size:14px}
+
+.calendar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.cal-nav{background:none;border:1px solid var(--border);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;color:var(--charcoal);transition:all 0.2s;display:flex;align-items:center;justify-content:center}
+.cal-nav:hover{border-color:var(--rose);color:var(--rose-dark)}
+.cal-month{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400}
+
+.calendar-legend{display:flex;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--charcoal-mid)}
+.legend-dot{width:12px;height:12px;border-radius:50%}
+
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:2rem}
+.cal-day-header{text-align:center;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--charcoal-mid);padding:0.5rem 0}
+.cal-day{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;border:1px solid var(--border);cursor:pointer;transition:all 0.18s;position:relative;background:var(--bg-card)}
+.cal-day .day-num{font-size:14px;font-weight:500;line-height:1}
+.cal-day .day-dots{display:flex;gap:3px;margin-top:4px}
+.cal-day .dot{width:5px;height:5px;border-radius:50%}
+.cal-day.empty{background:transparent;border-color:transparent;cursor:default}
+.cal-day.past{opacity:0.3;cursor:not-allowed}
+.cal-day.available{border-color:var(--green)}
+.cal-day.available:hover{background:#F0F7F1;transform:scale(1.05)}
+.cal-day.partial{border-color:var(--amber)}
+.cal-day.partial:hover{background:#FBF5EA;transform:scale(1.05)}
+.cal-day.full{border-color:var(--red);cursor:not-allowed;opacity:0.6}
+.cal-day.selected{background:var(--charcoal);border-color:var(--charcoal);color:#fff}
+.cal-day.selected .day-num{color:#fff}
+
+/* Time picker */
+.time-picker{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;display:none}
+.time-picker.active{display:block}
+.time-picker h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-bottom:0.3rem}
+.time-picker .tp-sub{font-size:12px;color:var(--charcoal-mid);margin-bottom:1rem}
+.time-input-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.time-input-row input[type=time]{border:1px solid var(--border);border-radius:8px;padding:0.6rem 0.8rem;font-family:'Inter',sans-serif;font-size:14px;background:var(--bg);color:var(--charcoal);outline:none;transition:border-color 0.2s}
+.time-input-row input[type=time]:focus{border-color:var(--rose)}
+.time-warning{font-size:12px;color:var(--red);margin-top:0.5rem;display:none}
+
+/* Booking form */
+.booking-form{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:none}
+.booking-form.active{display:block}
+.booking-form h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:4px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-mid)}
+.form-group input,.form-group select{border:1px solid var(--border);border-radius:8px;padding:0.65rem 0.8rem;font-family:'Inter',sans-serif;font-size:14px;background:var(--bg);color:var(--charcoal);outline:none;transition:border-color 0.2s;appearance:none}
+.form-group input:focus,.form-group select:focus{border-color:var(--rose)}
+.confirm-btn{width:100%;background:var(--charcoal);color:#fff;border:none;padding:0.9rem;border-radius:2rem;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-top:0.5rem;transition:background 0.2s}
+.confirm-btn:hover{background:#444}
+
+.booking-success{background:var(--bg-card);border:1px solid var(--green);border-radius:var(--radius);padding:2rem;text-align:center;display:none}
+.booking-success.active{display:block}
+.booking-success h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;margin-bottom:0.5rem;color:var(--green)}
+.booking-success p{color:var(--charcoal-mid);font-size:14px}
+
+/* SERVICES */
+#services{background:var(--bg)}
+.services-intro{margin-bottom:2.5rem}
+.services-intro .section-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:0.5rem}
+.services-intro h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:0.5rem}
+.services-intro p{color:var(--charcoal-mid);font-size:14px}
+
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.service-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.service-card-header{padding:1.2rem 1.5rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.service-card-header h3{font-size:1.3rem}
+.badge{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border-radius:2rem;white-space:nowrap;flex-shrink:0;margin-top:4px}
+.badge-fix{background:#EDF4EE;color:#4A7A4F;border:1px solid #B8D8BA}
+.badge-supply{background:#FBF0F0;color:#8A4040;border:1px solid var(--rose-light)}
+.service-card-desc{font-size:12px;color:var(--charcoal-mid);padding:0 1.5rem 0.8rem;margin-top:-0.3rem}
+.price-list{padding:0.5rem 0}
+.price-item{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1.5rem;border-bottom:1px solid var(--border)}
+.price-item:last-child{border-bottom:none}
+.price-item .svc-name{font-size:14px;color:var(--charcoal)}
+.price-item .svc-price{font-size:14px;font-weight:500;font-family:'Cormorant Garamond',serif;font-size:1rem}
+.price-fix .svc-price{color:#4A7A4F}
+.price-supply .svc-price{color:#8A4040}
+
+/* CATALOGUE */
+#catalogue{background:var(--bg)}
+.catalogue-intro{margin-bottom:2.5rem}
+.catalogue-intro .section-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:0.5rem}
+.catalogue-intro h2{font-size:clamp(2rem,5vw,3rem)}
+.catalogue-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.catalogue-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform 0.2s}
+.catalogue-card:hover{transform:translateY(-3px)}
+.catalogue-img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--rose-light);display:flex;align-items:center;justify-content:center}
+.catalogue-img-placeholder{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,var(--rose-light) 0%,#EDD8D8 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.catalogue-img-placeholder span{font-size:11px;color:var(--rose-dark);letter-spacing:0.05em}
+.catalogue-img-placeholder .ph-icon{font-size:2rem;opacity:0.4}
+.catalogue-info{padding:1rem 1.2rem}
+.catalogue-info h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-bottom:0.5rem}
+.catalogue-tags{display:flex;gap:6px;flex-wrap:wrap}
+.cat-tag{font-size:10px;padding:3px 8px;border-radius:2rem;letter-spacing:0.06em;text-transform:uppercase}
+.cat-tag.fix{background:#EDF4EE;color:#4A7A4F;border:1px solid #B8D8BA}
+.cat-tag.supply{background:#FBF0F0;color:#8A4040;border:1px solid var(--rose-light)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center}
+footer .footer-inner{max-width:1000px;margin:0 auto}
+footer .footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.4rem;margin-bottom:0.5rem}
+footer p{font-size:13px;color:var(--charcoal-mid)}
+footer .footer-contact{display:flex;gap:2rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
+footer .footer-contact a{font-size:13px;color:var(--charcoal-mid);text-decoration:none;transition:color 0.2s}
+footer .footer-contact a:hover{color:var(--rose-dark)}
+
+@media(max-width:640px){
+  .services-grid{grid-template-columns:1fr}
+  .catalogue-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .nav-links{gap:1.2rem}
+  .nav-links a{font-size:11px}
+}
+@media(max-width:420px){
+  .catalogue-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">Maxeene's Hair Parlour</span>
+    <div class="nav-links">
+      <a href="#booking">Booking</a>
+      <a href="#services">Services</a>
+      <a href="#catalogue">Catalogue</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Hair done right,<br><em>on your time.</em></h1>
+  <p>Gaborone's mobile hairstylist. She comes to you — braids, twists, locs and more. Book your slot, she handles the rest.</p>
+  <div class="hero-ctas">
+    <a href="#booking" class="btn-primary">Book now</a>
+    <a href="#services" class="btn-outline">View pricing</a>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="section">
+    <div class="section-label">Step 1 — Pick a day</div>
+    <h2>Book your appointment</h2>
+    <p class="subtitle">Two appointments per day. Each session takes 5 hours, followed by a 2-hour rest — next slot opens 7 hours after the first booking.</p>
+
+    <div class="calendar-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Available (0–1 booked)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div> One slot left</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Fully booked</div>
+    </div>
+
+    <div class="calendar-header">
+      <button class="cal-nav" id="prev-month">&#8592;</button>
+      <span class="cal-month" id="cal-month-label"></span>
+      <button class="cal-nav" id="next-month">&#8594;</button>
+    </div>
+
+    <div class="calendar-grid" id="calendar-grid">
+      <div class="cal-day-header">Sun</div>
+      <div class="cal-day-header">Mon</div>
+      <div class="cal-day-header">Tue</div>
+      <div class="cal-day-header">Wed</div>
+      <div class="cal-day-header">Thu</div>
+      <div class="cal-day-header">Fri</div>
+      <div class="cal-day-header">Sat</div>
+    </div>
+
+    <div class="time-picker" id="time-picker">
+      <h4 id="time-picker-title">Choose your time</h4>
+      <p class="tp-sub" id="time-picker-sub">24-hour service. Must be at least 2 hours from any existing booking on this day.</p>
+      <div class="time-input-row">
+        <input type="time" id="time-input" value="10:00">
+        <button class="btn-primary" onclick="confirmTime()">Confirm time</button>
+      </div>
+      <p class="time-warning" id="time-warning"></p>
+    </div>
+
+    <div class="booking-form" id="booking-form">
+      <h4 id="form-title">Your details</h4>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full name</label>
+          <input type="text" id="f-name" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label>Phone number</label>
+          <input type="tel" id="f-phone" placeholder="+267 7X XXX XXX">
+        </div>
+        <div class="form-group">
+          <label>Location / area</label>
+          <input type="text" id="f-location" placeholder="e.g. Gaborone West, Block 9">
+        </div>
+        <div class="form-group">
+          <label>Service</label>
+          <select id="f-service">
+            <option value="">Select a service</option>
+            <optgroup label="Fix Only (you bring the hair)">
+              <option>Box Braids — Fix Only (P150)</option>
+              <option>Knotless Braids — Fix Only (P200)</option>
+              <option>Cornrows — Fix Only (P80)</option>
+              <option>Fulani Braids — Fix Only (P220)</option>
+              <option>Passion Twists — Fix Only (P180)</option>
+            </optgroup>
+            <optgroup label="Fix & Supply (Maxeene provides the hair)">
+              <option>Box Braids — Fix & Supply (P320)</option>
+              <option>Knotless Braids — Fix & Supply (P400)</option>
+              <option>Cornrows — Fix & Supply (P160)</option>
+              <option>Fulani Braids — Fix & Supply (P440)</option>
+              <option>Passion Twists — Fix & Supply (P380)</option>
+              <option>Goddess Locs — Fix & Supply (P520)</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+      <button class="confirm-btn" onclick="submitBooking()">Confirm booking</button>
+    </div>
+
+    <div class="booking-success" id="booking-success">
+      <h3>You're booked ✓</h3>
+      <p id="success-msg"></p>
+      <p style="margin-top:0.5rem">Maxeene will confirm via WhatsApp. See you soon.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:var(--bg)">
+  <div class="section">
+    <div class="services-intro">
+      <div class="section-label">Pricing</div>
+      <h2>Two ways to book</h2>
+      <p>Bring your own braid hair and pay labour only — or let Maxeene supply everything.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-header">
+          <h3>Fix Only</h3>
+          <span class="badge badge-fix">You bring the hair</span>
+        </div>
+        <p class="service-card-desc">Pay for skill and time. Source your own braid hair before your appointment.</p>
+        <div class="price-list">
+          <div class="price-item price-fix"><span class="svc-name">Box Braids</span><span class="svc-price">P150</span></div>
+          <div class="price-item price-fix"><span class="svc-name">Knotless Braids</span><span class="svc-price">P200</span></div>
+          <div class="price-item price-fix"><span class="svc-name">Fulani Braids</span><span class="svc-price">P220</span></div>
+          <div class="price-item price-fix"><span class="svc-name">Cornrows (straight back)</span><span class="svc-price">P80</span></div>
+          <div class="price-item price-fix"><span class="svc-name">Passion Twists</span><span class="svc-price">P180</span></div>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-header">
+          <h3>Fix & Supply</h3>
+          <span class="badge badge-supply">Maxeene supplies the hair</span>
+        </div>
+        <p class="service-card-desc">Premium braid hair sourced and styled. One price, zero extra stops.</p>
+        <div class="price-list">
+          <div class="price-item price-supply"><span class="svc-name">Box Braids</span><span class="svc-price">P320</span></div>
+          <div class="price-item price-supply"><span class="svc-name">Knotless Braids</span><span class="svc-price">P400</span></div>
+          <div class="price-item price-supply"><span class="svc-name">Fulani Braids</span><span class="svc-price">P440</span></div>
+          <div class="price-item price-supply"><span class="svc-name">Cornrows (straight back)</span><span class="svc-price">P160</span></div>
+          <div class="price-item price-supply"><span class="svc-name">Passion Twists</span><span class="svc-price">P380</span></div>
+          <div class="price-item price-supply"><span class="svc-name">Goddess Locs</span><span class="svc-price">P520</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="catalogue">
+  <div class="section">
+    <div class="catalogue-intro">
+      <div class="section-label">Lookbook</div>
+      <h2>The catalogue</h2>
+    </div>
+    <div class="catalogue-grid">
+      <div class="catalogue-card">
+        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Box Braids</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
+        <div class="catalogue-info"><h4>Box Braids</h4><div class="catalogue-tags"><span class="cat-tag fix">Fix Only</span><span class="cat-tag supply">Fix & Supply</span></div></div>
+      </div>
+      <div class="catalogue-card">
+        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Knotless Braids</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
+        <div class="catalogue-info"><h4>Knotless Braids</h4><div class="catalogue-tags"><span class="cat-tag fix">Fix Only</span><span class="cat-tag supply">Fix & Supply</span></div></div>
+      </div>
+      <div class="catalogue-card">
+        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Fulani Braids</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
+        <div class="catalogue-info"><h4>Fulani Braids</h4><div class="catalogue-tags"><span class="cat-tag fix">Fix Only</span><span class="cat-tag supply">Fix & Supply</span></div></div>
+      </div>
+      <div class="catalogue-card">
+        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Cornrows</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
+        <div class="catalogue-info"><h4>Cornrows</h4><div class="catalogue-tags"><span class="cat-tag fix">Fix Only</span><span class="cat-tag supply">Fix & Supply</span></div></div>
+      </div>
+      <div class="catalogue-card">
+        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Passion Twists</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
+        <div class="catalogue-info"><h4>Passion Twists</h4><div class="catalogue-tags"><span class="cat-tag fix">Fix Only</span><span class="cat-tag supply">Fix & Supply</span></div></div>
+      </div>
+      <div class="catalogue-card">
+        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Goddess Locs</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
+        <div class="catalogue-info"><h4>Goddess Locs</h4><div class="catalogue-tags"><span class="cat-tag supply">Fix & Supply</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Maxeene's Hair Parlour</div>
+    <p>Mobile hairstylist · Gaborone, Botswana</p>
+    <div class="footer-contact">
+      <a href="tel:+26771234567">+267 71 234 567</a>
+      <a href="https://wa.me/26771234567">WhatsApp</a>
+    </div>
+    <p style="margin-top:1.5rem;font-size:11px;opacity:0.5">© 2026 Maxeene's Hair Parlour</p>
+  </div>
+</footer>
+
+<script>
+const bookings = {};
+let selectedDate = null;
+let selectedTime = null;
+let currentYear, currentMonth;
+
+const today = new Date();
+currentYear = today.getFullYear();
+currentMonth = today.getMonth();
+
+function toMinutes(t) {
+  const [h, m] = t.split(':').map(Number);
+  return h * 60 + m;
+}
+
+function getDayKey(y, m, d) {
+  return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+}
+
+function getDayStatus(key) {
+  const slots = bookings[key] || [];
+  if (slots.length === 0) return 'available';
+  if (slots.length === 1) return 'partial';
+  return 'full';
+}
+
+function isTimeConflict(key, newTime) {
+  const slots = bookings[key] || [];
+  const newMin = toMinutes(newTime);
+  for (const t of slots) {
+    if (newMin < toMinutes(t) + 420 && newMin >= toMinutes(t)) return true;
+    if (toMinutes(t) < newMin + 420 && toMinutes(t) >= newMin) return true;
+  }
+  return false;
+}
+
+function renderCalendar() {
+  const grid = document.getElementById('calendar-grid');
+  const headers = grid.querySelectorAll('.cal-day-header');
+  grid.innerHTML = '';
+  headers.forEach(h => grid.appendChild(h.cloneNode(true)));
+
+  const label = document.getElementById('cal-month-label');
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  label.textContent = `${months[currentMonth]} ${currentYear}`;
+
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+  for (let i = 0; i < firstDay; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'cal-day empty';
+    grid.appendChild(empty);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const key = getDayKey(currentYear, currentMonth, d);
+    const status = getDayStatus(key);
+    const dayDate = new Date(currentYear, currentMonth, d);
+    const isPast = dayDate < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+    const cell = document.createElement('div');
+    cell.className = 'cal-day';
+    if (isPast) {
+      cell.classList.add('past');
+    } else {
+      cell.classList.add(status);
+    }
+    if (selectedDate === key) cell.classList.add('selected');
+
+    const num = document.createElement('div');
+    num.className = 'day-num';
+    num.textContent = d;
+    cell.appendChild(num);
+
+    const dots = document.createElement('div');
+    dots.className = 'day-dots';
+    const slots = bookings[key] || [];
+    for (let s = 0; s < slots.length; s++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.style.background = s === 0 ? 'var(--amber)' : 'var(--red)';
+      dots.appendChild(dot);
+    }
+    cell.appendChild(dots);
+
+    if (!isPast && status !== 'full') {
+      cell.addEventListener('click', () => selectDay(key, d));
+    }
+
+    grid.appendChild(cell);
+  }
+}
+
+function selectDay(key, d) {
+  selectedDate = key;
+  selectedTime = null;
+  renderCalendar();
+
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const tp = document.getElementById('time-picker');
+  tp.classList.add('active');
+  document.getElementById('time-picker-title').textContent = `Choose time — ${months[currentMonth]} ${d}`;
+
+  const slots = bookings[key] || [];
+  let subText = '24-hour service. Each appointment takes 5 hrs — next slot opens 7 hours after the first booking.';
+  if (slots.length === 1) {
+    const bookedMin = toMinutes(slots[0]);
+    const nextAvail = `${String(Math.floor((bookedMin + 420) / 60) % 24).padStart(2,'0')}:${String((bookedMin + 420) % 60).padStart(2,'0')}`;
+    subText = `Booked at ${slots[0]} (ends ~${String(Math.floor((bookedMin+300)/60)%24).padStart(2,'0')}:${String((bookedMin+300)%60).padStart(2,'0')}). Next slot available from ${nextAvail}.`;
+  }
+  document.getElementById('time-picker-sub').textContent = subText;
+  document.getElementById('time-warning').style.display = 'none';
+  document.getElementById('booking-form').classList.remove('active');
+  document.getElementById('booking-success').classList.remove('active');
+}
+
+function confirmTime() {
+  const timeVal = document.getElementById('time-input').value;
+  if (!timeVal) return;
+
+  const warn = document.getElementById('time-warning');
+  if (isTimeConflict(selectedDate, timeVal)) {
+    warn.textContent = 'That time is within 2 hours of an existing booking. Please pick another time.';
+    warn.style.display = 'block';
+    return;
+  }
+  warn.style.display = 'none';
+  selectedTime = timeVal;
+
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const [y, m, d] = selectedDate.split('-');
+  const form = document.getElementById('booking-form');
+  form.classList.add('active');
+  document.getElementById('form-title').textContent = `Your details — ${months[parseInt(m)-1]} ${parseInt(d)}, ${timeVal}`;
+  form.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function submitBooking() {
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const location = document.getElementById('f-location').value.trim();
+  const service = document.getElementById('f-service').value;
+
+  if (!name || !phone || !location || !service) {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  if (!bookings[selectedDate]) bookings[selectedDate] = [];
+  bookings[selectedDate].push(selectedTime);
+
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const [y, m, d] = selectedDate.split('-');
+  document.getElementById('success-msg').textContent =
+    `${name} · ${months[parseInt(m)-1]} ${parseInt(d)}, ${currentYear} at ${selectedTime} · ${service} · ${location}`;
+
+  document.getElementById('time-picker').classList.remove('active');
+  document.getElementById('booking-form').classList.remove('active');
+  document.getElementById('booking-success').classList.add('active');
+
+  document.getElementById('f-name').value = '';
+  document.getElementById('f-phone').value = '';
+  document.getElementById('f-location').value = '';
+  document.getElementById('f-service').value = '';
+
+  selectedDate = null;
+  selectedTime = null;
+  renderCalendar();
+}
+
+document.getElementById('prev-month').addEventListener('click', () => {
+  currentMonth--;
+  if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+  renderCalendar();
+});
+document.getElementById('next-month').addEventListener('click', () => {
+  currentMonth++;
+  if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+  renderCalendar();
+});
+
+renderCalendar();
+</script>
+</body>
+</html>
