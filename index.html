@@ -27,7 +27,8 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400}
 
 nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 2rem}
 .nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:0.05em;color:var(--charcoal)}
+.nav-brand{display:flex;align-items:center}
+.nav-brand img{height:44px;width:44px;object-fit:contain;border-radius:50%}
 .nav-links{display:flex;gap:2rem}
 .nav-links a{text-decoration:none;color:var(--charcoal-mid);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:var(--rose-dark)}
@@ -119,7 +120,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .badge{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border-radius:2rem;white-space:nowrap;flex-shrink:0;margin-top:4px}
 .badge-fix{background:#EDF4EE;color:#4A7A4F;border:1px solid #B8D8BA}
 .badge-supply{background:#FBF0F0;color:#8A4040;border:1px solid var(--rose-light)}
-.service-card-desc{font-size:12px;color:var(--charcoal-mid);padding:0 1.5rem 0.8rem;margin-top:-0.3rem}
+.service-card-desc{font-size:12px;color:var(--charcoal-mid);padding:1rem 1.5rem 1rem;margin-top:0}
 .price-list{padding:0.5rem 0}
 .price-item{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1.5rem;border-bottom:1px solid var(--border)}
 .price-item:last-child{border-bottom:none}
@@ -172,7 +173,7 @@ footer .footer-contact a:hover{color:var(--rose-dark)}
 
 <nav>
   <div class="nav-inner">
-    <span class="nav-brand">Maxeene's Hair Parlour</span>
+    <a href="#" class="nav-brand"><img src="https://raw.githubusercontent.com/atlangkeolebile-svg/maxeenes-hair-parlour/main/Maxeene's%20Hair%20Parlour%20logo.png" alt="Maxeene's Hair Parlour"></a>
     <div class="nav-links">
       <a href="#booking">Booking</a>
       <a href="#services">Services</a>
