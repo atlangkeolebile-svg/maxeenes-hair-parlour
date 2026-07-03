@@ -411,7 +411,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 1.5rem}
 <script>
 const SUPABASE_URL = 'https://jmykczlwlqfnyltqxbmz.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptyWtjemx3bHFmbnlsdHF4Ym16Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwMjM1MDQsImV4cCI6MjA5ODU5OTUwNH0.WXFXHkS6XDO9ewFF3r7hTOk7BzwjMuiRkN3u24mVdjU';
-const ADMIN_PASSWORD = 'maxeene2026';
+
 const WA_NUMBER = '26777847092';
 
 const headers = {'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY};
@@ -422,6 +422,10 @@ async function dbGet(table, params=''){
 }
 async function dbPost(table, body){
   const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}`,{method:'POST',headers:{...headers,'Prefer':'return=representation'},body:JSON.stringify(body)});
+  return r.json();
+}
+async function dbRpc(fn, params){
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${fn}`,{method:'POST',headers,body:JSON.stringify(params)});
   return r.json();
 }
 async function dbDelete(table, params){
@@ -649,6 +653,9 @@ function buildCatalogue(){
       <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>${item.name}</span><span style="font-size:10px;color:var(--rose-dark)">Add photo</span></div>
       <div class="catalogue-info"><h4>${item.name}</h4><div class="catalogue-tags">${tags}</div></div>
     </div>`;
+    // When real photos are added, use:
+    // <img src="photo.webp" alt="${item.name}" loading="lazy" width="400" height="533" style="width:100%;aspect-ratio:3/4;object-fit:cover">
+
   });
 }
 
@@ -768,7 +775,17 @@ async function submitBooking(){
   const btn=document.getElementById('confirm-btn');
   btn.disabled=true;btn.textContent='Booking...';
   try{
-    await dbPost('bookings',{customer_name:name,phone,location:loc,service:svc,booking_date:selectedDate,booking_time:selectedTime});
+    const result = await dbRpc('insert_booking',{
+      p_name:name,p_phone:phone,p_location:loc,
+      p_service:svc,p_date:selectedDate,p_time:selectedTime
+    });
+    if(!result.success){
+      alert(result.error==='Time conflict'
+        ? 'That time is no longer available. Please pick another slot.'
+        : 'This day is fully booked. Please choose another day.');
+      btn.disabled=false;btn.textContent='Confirm booking';
+      await loadMonthData();renderCalendar();return;
+    }
     if(!bookingsCache[selectedDate])bookingsCache[selectedDate]=[];
     bookingsCache[selectedDate].push(selectedTime);
     const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
