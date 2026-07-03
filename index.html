@@ -390,11 +390,16 @@ footer{border-top:1px solid var(--border);padding:2.5rem 1.5rem}
       <div class="upcoming-list" id="upcoming-list"><p style="font-size:13px;color:var(--charcoal-mid)">Loading...</p></div>
     </div>
     <div class="admin-section">
-      <h4>Block a day</h4>
-      <div class="block-form">
-        <input type="date" id="block-date-input">
-        <button onclick="blockDay()">Block</button>
+      <h4>Block days</h4>
+      <p style="font-size:12px;color:var(--charcoal-mid);margin-bottom:0.8rem">Select one or more days to block.</p>
+      <div id="block-calendar-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem">
+        <button class="cal-nav" onclick="shiftBlockMonth(-1)">&#8592;</button>
+        <span id="block-month-label" style="font-family:'Cormorant Garamond',serif;font-size:1rem"></span>
+        <button class="cal-nav" onclick="shiftBlockMonth(1)">&#8594;</button>
       </div>
+      <div id="block-calendar-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:0.8rem"></div>
+      <div id="block-selected-preview" style="font-size:12px;color:var(--charcoal-mid);margin-bottom:0.6rem;min-height:18px"></div>
+      <button class="btn btn-dark" style="width:100%;font-size:12px;padding:0.6rem" onclick="blockSelectedDays()">Block selected days</button>
     </div>
     <div class="admin-section">
       <h4>Blocked days</h4>
@@ -802,6 +807,7 @@ function adminLogin(){
 }
 async function loadAdminData(){
   const today2=new Date().toISOString().split('T')[0];
+  renderBlockCalendar();
   const [bk,bl]=await Promise.all([
     dbGet('bookings',`booking_date=gte.${today2}&order=booking_date.asc,booking_time.asc&select=*`),
     dbGet('blocked_days',`order=blocked_date.asc&select=*`)
@@ -821,11 +827,60 @@ async function loadAdminData(){
     });
   }else{bl2.innerHTML='<p style="font-size:13px;color:var(--charcoal-mid)">None blocked.</p>';}
 }
-async function blockDay(){
-  const d=document.getElementById('block-date-input').value;
-  if(!d)return;
-  await dbPost('blocked_days',{blocked_date:d});
-  blockedDays.add(d);
+let blockMonthYear = new Date().getFullYear();
+let blockMonthMonth = new Date().getMonth();
+let selectedBlockDays = new Set();
+
+function renderBlockCalendar(){
+  const grid = document.getElementById('block-calendar-grid');
+  grid.innerHTML = '';
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('block-month-label').textContent = `${months[blockMonthMonth]} ${blockMonthYear}`;
+  ['S','M','T','W','T','F','S'].forEach(d=>{
+    const h = document.createElement('div');
+    h.style.cssText = 'text-align:center;font-size:10px;color:var(--charcoal-mid);padding:2px 0';
+    h.textContent = d;
+    grid.appendChild(h);
+  });
+  const first = new Date(blockMonthYear, blockMonthMonth, 1).getDay();
+  const days = new Date(blockMonthYear, blockMonthMonth+1, 0).getDate();
+  const todayStr = new Date().toISOString().split('T')[0];
+  for(let i=0;i<first;i++){const e=document.createElement('div');grid.appendChild(e);}
+  for(let d=1;d<=days;d++){
+    const k = dayKey(blockMonthYear, blockMonthMonth, d);
+    const isPast = k < todayStr;
+    const isBlocked = blockedDays.has(k);
+    const isSelected = selectedBlockDays.has(k);
+    const cell = document.createElement('div');
+    cell.style.cssText = `aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:6px;font-size:12px;cursor:${isPast?'not-allowed':'pointer'};border:1px solid ${isSelected?'var(--charcoal)':isBlocked?'var(--red)':'var(--border)'};background:${isSelected?'var(--charcoal)':isBlocked?'#fdf0f0':'var(--bg)'};color:${isSelected?'#fff':isBlocked?'var(--red)':'var(--charcoal)'};opacity:${isPast?0.3:1}`;
+    cell.textContent = d;
+    if(!isPast) cell.addEventListener('click',()=>toggleBlockDay(k));
+    grid.appendChild(cell);
+  }
+  const sel = [...selectedBlockDays];
+  document.getElementById('block-selected-preview').textContent = sel.length ? `Selected: ${sel.sort().join(', ')}` : '';
+}
+
+function toggleBlockDay(k){
+  if(selectedBlockDays.has(k)) selectedBlockDays.delete(k);
+  else selectedBlockDays.add(k);
+  renderBlockCalendar();
+}
+
+function shiftBlockMonth(dir){
+  blockMonthMonth += dir;
+  if(blockMonthMonth<0){blockMonthMonth=11;blockMonthYear--;}
+  if(blockMonthMonth>11){blockMonthMonth=0;blockMonthYear++;}
+  renderBlockCalendar();
+}
+
+async function blockSelectedDays(){
+  if(!selectedBlockDays.size){alert('No days selected.');return;}
+  const rows = [...selectedBlockDays].filter(d=>!blockedDays.has(d)).map(d=>({blocked_date:d}));
+  if(rows.length) await dbPost('blocked_days', rows);
+  rows.forEach(r=>blockedDays.add(r.blocked_date));
+  selectedBlockDays.clear();
+  renderBlockCalendar();
   renderCalendar();
   loadAdminData();
 }
