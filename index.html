@@ -3,170 +3,207 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maxeene's Hair Parlour</title>
+<title>Maxeene's Hair Parlour — Mobile Hairstylist, Gaborone</title>
+<meta name="description" content="Gaborone's mobile hairstylist. Braids, twists, locs and more. Maxeene comes to you. Book your appointment online.">
+<meta property="og:title" content="Maxeene's Hair Parlour">
+<meta property="og:description" content="Mobile hairstylist in Gaborone. Braids, twists, locs. She comes to you.">
+<meta property="og:image" content="https://raw.githubusercontent.com/atlangkeolebile-svg/maxeenes-hair-parlour/main/Maxeene's%20Hair%20Parlour%20logo.png">
+<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --rose:#D4A5A5;
-  --rose-light:#EDD8D8;
-  --rose-dark:#B88080;
-  --charcoal:#2C2C2C;
-  --charcoal-mid:#555;
-  --bg:#FAF8F5;
-  --bg-card:#FFF;
-  --border:#E8E0DC;
-  --green:#7BAE7F;
-  --amber:#C9973A;
-  --red:#B85C5C;
-  --radius:12px;
+  --rose:#D4A5A5;--rose-light:#EDD8D8;--rose-dark:#B88080;
+  --charcoal:#2C2C2C;--charcoal-mid:#555;--bg:#FAF8F5;--bg-card:#FFF;
+  --border:#E8E0DC;--green:#7BAE7F;--amber:#C9973A;--red:#B85C5C;--radius:12px;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--charcoal);font-size:15px;line-height:1.6}
 h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400}
 
-nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 2rem}
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 1.5rem}
 .nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
 .nav-brand{display:flex;align-items:center}
-.nav-brand img{height:44px;width:44px;object-fit:contain;border-radius:50%}
-.nav-links{display:flex;gap:2rem}
-.nav-links a{text-decoration:none;color:var(--charcoal-mid);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.nav-brand img{height:42px;width:42px;object-fit:contain;border-radius:50%}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{text-decoration:none;color:var(--charcoal-mid);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:var(--rose-dark)}
 
-.section{max-width:1000px;margin:0 auto;padding:5rem 2rem}
-
 /* HERO */
-.hero{text-align:center;padding:7rem 2rem 5rem;max-width:1000px;margin:0 auto}
-.hero h1{font-size:clamp(3rem,8vw,5.5rem);line-height:1.05;letter-spacing:-0.01em;color:var(--charcoal);margin-bottom:1.2rem}
+.hero{text-align:center;padding:6rem 1.5rem 4rem;max-width:1000px;margin:0 auto}
+.hero h1{font-size:clamp(2.8rem,8vw,5.5rem);line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.2rem}
 .hero h1 em{font-style:italic;color:var(--rose-dark)}
-.hero p{font-size:1rem;color:var(--charcoal-mid);max-width:480px;margin:0 auto 2.5rem;line-height:1.8}
+.hero p{font-size:1rem;color:var(--charcoal-mid);max-width:460px;margin:0 auto 2rem;line-height:1.8}
 .hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn-primary{background:var(--charcoal);color:#fff;border:none;padding:0.8rem 2rem;border-radius:2rem;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background 0.2s}
-.btn-primary:hover{background:#444}
-.btn-outline{background:transparent;color:var(--charcoal);border:1px solid var(--border);padding:0.8rem 2rem;border-radius:2rem;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.2s}
-.btn-outline:hover{border-color:var(--rose);color:var(--rose-dark)}
+.btn{display:inline-block;padding:0.75rem 1.8rem;border-radius:2rem;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.2s;border:none}
+.btn-dark{background:var(--charcoal);color:#fff}.btn-dark:hover{background:#444}
+.btn-outline{background:transparent;color:var(--charcoal);border:1px solid var(--border)}.btn-outline:hover{border-color:var(--rose);color:var(--rose-dark)}
+.btn-rose{background:var(--rose);color:#fff}.btn-rose:hover{background:var(--rose-dark)}
 
-.divider{width:60px;height:1px;background:var(--rose);margin:0 auto 3rem}
+.section{max-width:1000px;margin:0 auto;padding:4rem 1.5rem}
+.section-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:0.4rem}
+.section-title{font-size:clamp(1.8rem,5vw,2.8rem);margin-bottom:0.5rem}
+.section-sub{color:var(--charcoal-mid);font-size:14px;margin-bottom:2rem}
 
-/* BOOKING */
-#booking .section-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:0.5rem}
-#booking h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:0.5rem}
-#booking .subtitle{color:var(--charcoal-mid);margin-bottom:2.5rem;font-size:14px}
+/* POLICY BANNER */
+.policy-banner{background:#FBF0F0;border:1px solid var(--rose-light);border-radius:var(--radius);padding:1rem 1.5rem;margin-bottom:2rem;font-size:13px;color:var(--charcoal-mid);line-height:1.7}
+.policy-banner strong{color:var(--charcoal)}
 
-.calendar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
-.cal-nav{background:none;border:1px solid var(--border);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;color:var(--charcoal);transition:all 0.2s;display:flex;align-items:center;justify-content:center}
-.cal-nav:hover{border-color:var(--rose);color:var(--rose-dark)}
-.cal-month{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400}
-
-.calendar-legend{display:flex;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+/* CALENDAR */
+.calendar-legend{display:flex;gap:1.5rem;margin-bottom:1.2rem;flex-wrap:wrap}
 .legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--charcoal-mid)}
-.legend-dot{width:12px;height:12px;border-radius:50%}
-
-.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:2rem}
-.cal-day-header{text-align:center;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--charcoal-mid);padding:0.5rem 0}
-.cal-day{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;border:1px solid var(--border);cursor:pointer;transition:all 0.18s;position:relative;background:var(--bg-card)}
-.cal-day .day-num{font-size:14px;font-weight:500;line-height:1}
-.cal-day .day-dots{display:flex;gap:3px;margin-top:4px}
-.cal-day .dot{width:5px;height:5px;border-radius:50%}
+.legend-dot{width:10px;height:10px;border-radius:50%}
+.calendar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+.cal-nav{background:none;border:1px solid var(--border);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:14px;color:var(--charcoal);display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.cal-nav:hover{border-color:var(--rose);color:var(--rose-dark)}
+.cal-month{font-family:'Cormorant Garamond',serif;font-size:1.2rem}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:1.5rem}
+.cal-day-header{text-align:center;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--charcoal-mid);padding:0.4rem 0}
+.cal-day{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:8px;border:1px solid var(--border);cursor:pointer;transition:all 0.15s;background:var(--bg-card)}
+.cal-day .day-num{font-size:13px;font-weight:500;line-height:1}
+.cal-day .day-dots{display:flex;gap:3px;margin-top:3px}
+.cal-day .dot{width:4px;height:4px;border-radius:50%}
 .cal-day.empty{background:transparent;border-color:transparent;cursor:default}
 .cal-day.past{opacity:0.3;cursor:not-allowed}
-.cal-day.available{border-color:var(--green)}
-.cal-day.available:hover{background:#F0F7F1;transform:scale(1.05)}
-.cal-day.partial{border-color:var(--amber)}
-.cal-day.partial:hover{background:#FBF5EA;transform:scale(1.05)}
-.cal-day.full{border-color:var(--red);cursor:not-allowed;opacity:0.6}
+.cal-day.available{border-color:var(--green)}.cal-day.available:hover{background:#F0F7F1;transform:scale(1.05)}
+.cal-day.partial{border-color:var(--amber)}.cal-day.partial:hover{background:#FBF5EA;transform:scale(1.05)}
+.cal-day.full{border-color:var(--red);cursor:not-allowed;opacity:0.5}
+.cal-day.blocked{background:#f5f5f5;border-color:#ccc;cursor:not-allowed;opacity:0.4}
 .cal-day.selected{background:var(--charcoal);border-color:var(--charcoal);color:#fff}
 .cal-day.selected .day-num{color:#fff}
 
-/* Time picker */
-.time-picker{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;display:none}
+/* TIME PICKER */
+.time-picker{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.2rem;display:none}
 .time-picker.active{display:block}
 .time-picker h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-bottom:0.3rem}
-.time-picker .tp-sub{font-size:12px;color:var(--charcoal-mid);margin-bottom:1rem}
+.tp-sub{font-size:12px;color:var(--charcoal-mid);margin-bottom:1rem}
 .time-input-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-.time-input-row input[type=time]{border:1px solid var(--border);border-radius:8px;padding:0.6rem 0.8rem;font-family:'Inter',sans-serif;font-size:14px;background:var(--bg);color:var(--charcoal);outline:none;transition:border-color 0.2s}
+.time-input-row input[type=time]{border:1px solid var(--border);border-radius:8px;padding:0.55rem 0.8rem;font-family:'Inter',sans-serif;font-size:14px;background:var(--bg);color:var(--charcoal);outline:none;transition:border-color 0.2s}
 .time-input-row input[type=time]:focus{border-color:var(--rose)}
 .time-warning{font-size:12px;color:var(--red);margin-top:0.5rem;display:none}
 
-/* Booking form */
-.booking-form{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:none}
+/* BOOKING FORM */
+.booking-form{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:none;overflow:hidden}
 .booking-form.active{display:block}
-.booking-form h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:1rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.booking-form h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:1rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:0.8rem}
 .form-group{display:flex;flex-direction:column;gap:4px}
 .form-group.full{grid-column:1/-1}
 .form-group label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-mid)}
-.form-group input,.form-group select{border:1px solid var(--border);border-radius:8px;padding:0.65rem 0.8rem;font-family:'Inter',sans-serif;font-size:14px;background:var(--bg);color:var(--charcoal);outline:none;transition:border-color 0.2s;appearance:none}
+.form-group input,.form-group select{border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.75rem;font-family:'Inter',sans-serif;font-size:14px;background:var(--bg);color:var(--charcoal);outline:none;transition:border-color 0.2s;width:100%;appearance:none}
 .form-group input:focus,.form-group select:focus{border-color:var(--rose)}
-.confirm-btn{width:100%;background:var(--charcoal);color:#fff;border:none;padding:0.9rem;border-radius:2rem;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-top:0.5rem;transition:background 0.2s}
+.deposit-note{font-size:12px;color:var(--charcoal-mid);background:#FBF0F0;border:1px solid var(--rose-light);border-radius:8px;padding:0.75rem 1rem;margin-bottom:0.8rem}
+.confirm-btn{width:100%;background:var(--charcoal);color:#fff;border:none;padding:0.85rem;border-radius:2rem;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
 .confirm-btn:hover{background:#444}
+.confirm-btn:disabled{opacity:0.5;cursor:not-allowed}
 
+/* SUCCESS */
 .booking-success{background:var(--bg-card);border:1px solid var(--green);border-radius:var(--radius);padding:2rem;text-align:center;display:none}
 .booking-success.active{display:block}
 .booking-success h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;margin-bottom:0.5rem;color:var(--green)}
-.booking-success p{color:var(--charcoal-mid);font-size:14px}
+.booking-success p{color:var(--charcoal-mid);font-size:14px;margin-bottom:0.5rem}
+.success-actions{display:flex;gap:0.8rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap}
 
 /* SERVICES */
-#services{background:var(--bg)}
-.services-intro{margin-bottom:2.5rem}
-.services-intro .section-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:0.5rem}
-.services-intro h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:0.5rem}
-.services-intro p{color:var(--charcoal-mid);font-size:14px}
-
 .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 .service-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .service-card-header{padding:1.2rem 1.5rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
 .service-card-header h3{font-size:1.3rem}
-.badge{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border-radius:2rem;white-space:nowrap;flex-shrink:0;margin-top:4px}
+.badge{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:2rem;white-space:nowrap;flex-shrink:0;margin-top:4px}
 .badge-fix{background:#EDF4EE;color:#4A7A4F;border:1px solid #B8D8BA}
 .badge-supply{background:#FBF0F0;color:#8A4040;border:1px solid var(--rose-light)}
-.service-card-desc{font-size:12px;color:var(--charcoal-mid);padding:1rem 1.5rem 1rem;margin-top:0}
-.price-list{padding:0.5rem 0}
-.price-item{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1.5rem;border-bottom:1px solid var(--border)}
+.service-card-desc{font-size:12px;color:var(--charcoal-mid);padding:1rem 1.5rem 0.5rem}
+
+/* PRICE ACCORDION */
+.price-category{border-bottom:1px solid var(--border)}
+.price-category:last-child{border-bottom:none}
+.price-cat-header{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1.5rem;cursor:pointer;transition:background 0.15s}
+.price-cat-header:hover{background:#faf7f7}
+.price-cat-header span{font-size:13px;font-weight:500}
+.price-cat-header .arrow{font-size:10px;color:var(--charcoal-mid);transition:transform 0.2s}
+.price-cat-body{display:none;padding:0 1.5rem 0.8rem}
+.price-cat-body.open{display:block}
+.price-item{display:flex;justify-content:space-between;align-items:flex-start;padding:0.55rem 0;border-bottom:1px solid #f5f0ec;gap:1rem}
 .price-item:last-child{border-bottom:none}
-.price-item .svc-name{font-size:14px;color:var(--charcoal)}
-.price-item .svc-price{font-size:14px;font-weight:500;font-family:'Cormorant Garamond',serif;font-size:1rem}
+.price-item .svc-name{font-size:13px;color:var(--charcoal);flex:1}
+.price-item .svc-detail{font-size:11px;color:var(--charcoal-mid);margin-top:2px}
+.price-item .svc-price{font-size:13px;font-weight:500;white-space:nowrap;text-align:right}
 .price-fix .svc-price{color:#4A7A4F}
 .price-supply .svc-price{color:#8A4040}
+.price-both .svc-price{color:var(--charcoal-mid)}
 
 /* CATALOGUE */
-#catalogue{background:var(--bg)}
-.catalogue-intro{margin-bottom:2.5rem}
-.catalogue-intro .section-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:0.5rem}
-.catalogue-intro h2{font-size:clamp(2rem,5vw,3rem)}
-.catalogue-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.catalogue-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .catalogue-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform 0.2s}
 .catalogue-card:hover{transform:translateY(-3px)}
-.catalogue-img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--rose-light);display:flex;align-items:center;justify-content:center}
-.catalogue-img-placeholder{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,var(--rose-light) 0%,#EDD8D8 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
-.catalogue-img-placeholder span{font-size:11px;color:var(--rose-dark);letter-spacing:0.05em}
-.catalogue-img-placeholder .ph-icon{font-size:2rem;opacity:0.4}
-.catalogue-info{padding:1rem 1.2rem}
-.catalogue-info h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-bottom:0.5rem}
-.catalogue-tags{display:flex;gap:6px;flex-wrap:wrap}
-.cat-tag{font-size:10px;padding:3px 8px;border-radius:2rem;letter-spacing:0.06em;text-transform:uppercase}
+.catalogue-img-placeholder{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,var(--rose-light) 0%,#EDD8D8 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.catalogue-img-placeholder .ph-icon{font-size:1.8rem;opacity:0.35}
+.catalogue-img-placeholder span{font-size:11px;color:var(--rose-dark);letter-spacing:0.04em}
+.catalogue-info{padding:0.9rem 1rem}
+.catalogue-info h4{font-family:'Cormorant Garamond',serif;font-size:1rem;margin-bottom:0.4rem}
+.catalogue-tags{display:flex;gap:5px;flex-wrap:wrap}
+.cat-tag{font-size:10px;padding:2px 7px;border-radius:2rem;letter-spacing:0.05em;text-transform:uppercase}
 .cat-tag.fix{background:#EDF4EE;color:#4A7A4F;border:1px solid #B8D8BA}
 .cat-tag.supply{background:#FBF0F0;color:#8A4040;border:1px solid var(--rose-light)}
 
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.about-img{aspect-ratio:3/4;background:linear-gradient(135deg,var(--rose-light),#EDD8D8);border-radius:var(--radius);display:flex;align-items:center;justify-content:center}
+.about-img img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius)}
+.about-text h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:1rem}
+.about-text p{font-size:14px;color:var(--charcoal-mid);line-height:1.9;margin-bottom:1rem}
+.about-details{display:flex;flex-direction:column;gap:0.5rem;margin-top:1.2rem}
+.about-detail{display:flex;align-items:center;gap:0.6rem;font-size:13px;color:var(--charcoal-mid)}
+.about-detail .icon{color:var(--rose)}
+
 /* FOOTER */
-footer{border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center}
-footer .footer-inner{max-width:1000px;margin:0 auto}
-footer .footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.4rem;margin-bottom:0.5rem}
-footer p{font-size:13px;color:var(--charcoal-mid)}
-footer .footer-contact{display:flex;gap:2rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
-footer .footer-contact a{font-size:13px;color:var(--charcoal-mid);text-decoration:none;transition:color 0.2s}
-footer .footer-contact a:hover{color:var(--rose-dark)}
+footer{border-top:1px solid var(--border);padding:2.5rem 1.5rem}
+.footer-inner{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:13px;color:var(--charcoal-mid);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--rose-dark)}
+.footer-copy{font-size:11px;color:var(--charcoal-mid);opacity:0.5}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:200;background:#25D366;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform 0.2s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:26px;height:26px}
+
+/* ADMIN */
+.admin-toggle{position:fixed;bottom:1.5rem;left:1.5rem;z-index:200;background:var(--charcoal);color:#fff;border:none;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 1rem;border-radius:2rem;cursor:pointer;opacity:0.4;transition:opacity 0.2s}
+.admin-toggle:hover{opacity:1}
+.admin-panel{position:fixed;top:0;right:-100%;width:min(320px,100vw);height:100vh;background:var(--bg-card);border-left:1px solid var(--border);z-index:300;transition:right 0.3s;overflow-y:auto;padding:2rem 1.5rem}
+.admin-panel.open{right:0}
+.admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.admin-header h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem}
+.admin-close{background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--charcoal-mid)}
+.admin-login{display:flex;flex-direction:column;gap:0.8rem}
+.admin-login input{border:1px solid var(--border);border-radius:8px;padding:0.6rem 0.8rem;font-size:14px;font-family:'Inter',sans-serif;background:var(--bg);outline:none}
+.admin-login input:focus{border-color:var(--rose)}
+.admin-section{margin-bottom:1.5rem}
+.admin-section h4{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-mid);margin-bottom:0.8rem}
+.admin-blocked-list{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem}
+.blocked-item{display:flex;align-items:center;justify-content:space-between;background:#f9f5f5;border:1px solid var(--rose-light);border-radius:8px;padding:0.5rem 0.8rem;font-size:13px}
+.unblock-btn{background:none;border:none;color:var(--red);cursor:pointer;font-size:12px;font-family:'Inter',sans-serif}
+.block-form{display:flex;gap:0.5rem}
+.block-form input{flex:1;border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.7rem;font-size:13px;font-family:'Inter',sans-serif;background:var(--bg);outline:none}
+.block-form button{background:var(--charcoal);color:#fff;border:none;border-radius:8px;padding:0.5rem 0.8rem;font-size:12px;cursor:pointer}
+.upcoming-list{display:flex;flex-direction:column;gap:0.6rem}
+.upcoming-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.9rem;font-size:12px;line-height:1.6}
+.upcoming-item strong{display:block;font-size:13px;margin-bottom:2px}
 
 @media(max-width:640px){
   .services-grid{grid-template-columns:1fr}
   .catalogue-grid{grid-template-columns:1fr 1fr}
-  .form-row{grid-template-columns:1fr}
-  .nav-links{gap:1.2rem}
+  .about-grid{grid-template-columns:1fr}
+  .about-img{display:none}
+  .form-grid{grid-template-columns:1fr}
+  .nav-links{gap:1rem}
   .nav-links a{font-size:11px}
 }
-@media(max-width:420px){
-  .catalogue-grid{grid-template-columns:1fr}
-}
+@media(max-width:380px){.catalogue-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -178,29 +215,36 @@ footer .footer-contact a:hover{color:var(--rose-dark)}
       <a href="#booking">Booking</a>
       <a href="#services">Services</a>
       <a href="#catalogue">Catalogue</a>
+      <a href="#about">About</a>
     </div>
   </div>
 </nav>
 
-<section class="hero">
+<!-- HERO -->
+<div class="hero">
   <h1>Hair done right,<br><em>on your time.</em></h1>
-  <p>Gaborone's mobile hairstylist. She comes to you — braids, twists, locs and more. Book your slot, she handles the rest.</p>
+  <p>Gaborone's mobile hairstylist. Maxeene comes to you — braids, twists, locs and more. Book your slot below.</p>
   <div class="hero-ctas">
-    <a href="#booking" class="btn-primary">Book now</a>
-    <a href="#services" class="btn-outline">View pricing</a>
+    <a href="#booking" class="btn btn-dark">Book now</a>
+    <a href="#services" class="btn btn-outline">View pricing</a>
   </div>
-</section>
+</div>
 
+<!-- BOOKING -->
 <section id="booking">
   <div class="section">
     <div class="section-label">Step 1 — Pick a day</div>
-    <h2>Book your appointment</h2>
-    <p class="subtitle">Two appointments per day. Each session takes 5 hours, followed by a 2-hour rest — next slot opens 7 hours after the first booking.</p>
+    <h2 class="section-title">Book your appointment</h2>
+    <p class="section-sub">Two appointments per day. Each session is 5 hours + 2 hours rest. She comes to you anywhere in Gaborone.</p>
+
+    <div class="policy-banner">
+      <strong>Booking policy:</strong> A <strong>25% deposit</strong> is required to secure your slot — via <strong>Paytocell or Orange Money only</strong>. A travel fee may apply depending on your location. Contact Maxeene on WhatsApp after booking to arrange payment.
+    </div>
 
     <div class="calendar-legend">
-      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Available (0–1 booked)</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div> One slot left</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Fully booked</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Available</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>One slot left</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Fully booked</div>
     </div>
 
     <div class="calendar-header">
@@ -208,146 +252,98 @@ footer .footer-contact a:hover{color:var(--rose-dark)}
       <span class="cal-month" id="cal-month-label"></span>
       <button class="cal-nav" id="next-month">&#8594;</button>
     </div>
-
-    <div class="calendar-grid" id="calendar-grid">
-      <div class="cal-day-header">Sun</div>
-      <div class="cal-day-header">Mon</div>
-      <div class="cal-day-header">Tue</div>
-      <div class="cal-day-header">Wed</div>
-      <div class="cal-day-header">Thu</div>
-      <div class="cal-day-header">Fri</div>
-      <div class="cal-day-header">Sat</div>
-    </div>
+    <div class="calendar-grid" id="calendar-grid"></div>
 
     <div class="time-picker" id="time-picker">
       <h4 id="time-picker-title">Choose your time</h4>
-      <p class="tp-sub" id="time-picker-sub">24-hour service. Must be at least 2 hours from any existing booking on this day.</p>
+      <p class="tp-sub" id="time-picker-sub">24-hour service. Each appointment takes 5 hrs + 2 hrs rest = next slot opens 7 hours after.</p>
       <div class="time-input-row">
         <input type="time" id="time-input" value="10:00">
-        <button class="btn-primary" onclick="confirmTime()">Confirm time</button>
+        <button class="btn btn-dark" onclick="confirmTime()">Confirm time</button>
       </div>
       <p class="time-warning" id="time-warning"></p>
     </div>
 
     <div class="booking-form" id="booking-form">
       <h4 id="form-title">Your details</h4>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Full name</label>
-          <input type="text" id="f-name" placeholder="Your name">
-        </div>
-        <div class="form-group">
-          <label>Phone number</label>
-          <input type="tel" id="f-phone" placeholder="+267 7X XXX XXX">
-        </div>
-        <div class="form-group">
-          <label>Location / area</label>
-          <input type="text" id="f-location" placeholder="e.g. Gaborone West, Block 9">
-        </div>
-        <div class="form-group">
-          <label>Service</label>
-          <select id="f-service">
-            <option value="">Select a service</option>
-            <optgroup label="Fix Only (you bring the hair)">
-              <option>Box Braids — Fix Only (P150)</option>
-              <option>Knotless Braids — Fix Only (P200)</option>
-              <option>Cornrows — Fix Only (P80)</option>
-              <option>Fulani Braids — Fix Only (P220)</option>
-              <option>Passion Twists — Fix Only (P180)</option>
-            </optgroup>
-            <optgroup label="Fix & Supply (Maxeene provides the hair)">
-              <option>Box Braids — Fix & Supply (P320)</option>
-              <option>Knotless Braids — Fix & Supply (P400)</option>
-              <option>Cornrows — Fix & Supply (P160)</option>
-              <option>Fulani Braids — Fix & Supply (P440)</option>
-              <option>Passion Twists — Fix & Supply (P380)</option>
-              <option>Goddess Locs — Fix & Supply (P520)</option>
-            </optgroup>
+      <div class="form-grid">
+        <div class="form-group"><label>Full name</label><input type="text" id="f-name" placeholder="Your name"></div>
+        <div class="form-group"><label>Phone number</label><input type="tel" id="f-phone" placeholder="+267 7X XXX XXX"></div>
+        <div class="form-group full">
+          <label>Appointment type</label>
+          <select id="f-appt-type" onchange="toggleLocation()">
+            <option value="">Select an option</option>
+            <option value="home">Come to me — Maxeene travels to my location</option>
+            <option value="salon">I'll come to Maxeene — Old Naledi, Gaborone</option>
           </select>
         </div>
+        <div class="form-group full" id="f-location-group" style="display:none">
+          <label>Your address / area</label>
+          <input type="text" id="f-location" placeholder="e.g. Block 6, Phakalane, Gaborone West...">
+        </div>
+        <div class="form-group full"><label>Service</label><select id="f-service"><option value="">Select a service</option></select></div>
       </div>
-      <button class="confirm-btn" onclick="submitBooking()">Confirm booking</button>
+      <div class="deposit-note">💳 After confirming, send your <strong>25% deposit</strong> via Paytocell or Orange Money to <strong>+267 77 847 092</strong> to secure your slot.</div>
+      <button class="confirm-btn" id="confirm-btn" onclick="submitBooking()">Confirm booking</button>
     </div>
 
     <div class="booking-success" id="booking-success">
       <h3>You're booked ✓</h3>
       <p id="success-msg"></p>
-      <p style="margin-top:0.5rem">Maxeene will confirm via WhatsApp. See you soon.</p>
+      <p style="color:var(--rose-dark);font-size:13px;margin-top:0.5rem">Send your 25% deposit to +267 77 847 092 via Paytocell or Orange Money to confirm your slot.</p>
+      <div class="success-actions">
+        <a id="gcal-link" href="#" target="_blank" class="btn btn-outline">Add to Google Calendar</a>
+        <a href="https://wa.me/26777847092" target="_blank" class="btn btn-rose">WhatsApp Maxeene</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="services" style="background:var(--bg)">
+<!-- SERVICES -->
+<section id="services" style="background:#F5F0EC">
   <div class="section">
-    <div class="services-intro">
-      <div class="section-label">Pricing</div>
-      <h2>Two ways to book</h2>
-      <p>Bring your own braid hair and pay labour only — or let Maxeene supply everything.</p>
-    </div>
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Two ways to book</h2>
+    <p class="section-sub">Bring your own hair and pay for labour only, or let Maxeene supply everything.</p>
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-card-header">
-          <h3>Fix Only</h3>
-          <span class="badge badge-fix">You bring the hair</span>
-        </div>
-        <p class="service-card-desc">Pay for skill and time. Source your own braid hair before your appointment.</p>
-        <div class="price-list">
-          <div class="price-item price-fix"><span class="svc-name">Box Braids</span><span class="svc-price">P150</span></div>
-          <div class="price-item price-fix"><span class="svc-name">Knotless Braids</span><span class="svc-price">P200</span></div>
-          <div class="price-item price-fix"><span class="svc-name">Fulani Braids</span><span class="svc-price">P220</span></div>
-          <div class="price-item price-fix"><span class="svc-name">Cornrows (straight back)</span><span class="svc-price">P80</span></div>
-          <div class="price-item price-fix"><span class="svc-name">Passion Twists</span><span class="svc-price">P180</span></div>
-        </div>
+        <div class="service-card-header"><h3>Fix Only</h3><span class="badge badge-fix">You bring the hair</span></div>
+        <p class="service-card-desc">Pay for skill and time only. Source your own braid hair before your appointment.</p>
+        <div id="fix-only-prices"></div>
       </div>
       <div class="service-card">
-        <div class="service-card-header">
-          <h3>Fix & Supply</h3>
-          <span class="badge badge-supply">Maxeene supplies the hair</span>
-        </div>
-        <p class="service-card-desc">Premium braid hair sourced and styled. One price, zero extra stops.</p>
-        <div class="price-list">
-          <div class="price-item price-supply"><span class="svc-name">Box Braids</span><span class="svc-price">P320</span></div>
-          <div class="price-item price-supply"><span class="svc-name">Knotless Braids</span><span class="svc-price">P400</span></div>
-          <div class="price-item price-supply"><span class="svc-name">Fulani Braids</span><span class="svc-price">P440</span></div>
-          <div class="price-item price-supply"><span class="svc-name">Cornrows (straight back)</span><span class="svc-price">P160</span></div>
-          <div class="price-item price-supply"><span class="svc-name">Passion Twists</span><span class="svc-price">P380</span></div>
-          <div class="price-item price-supply"><span class="svc-name">Goddess Locs</span><span class="svc-price">P520</span></div>
-        </div>
+        <div class="service-card-header"><h3>Fix & Supply</h3><span class="badge badge-supply">Maxeene supplies the hair</span></div>
+        <p class="service-card-desc">Premium hair sourced and styled. One price, zero extra stops.</p>
+        <div id="fix-supply-prices"></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CATALOGUE -->
 <section id="catalogue">
   <div class="section">
-    <div class="catalogue-intro">
-      <div class="section-label">Lookbook</div>
-      <h2>The catalogue</h2>
-    </div>
-    <div class="catalogue-grid">
-      <div class="catalogue-card">
-        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Box Braids</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
-        <div class="catalogue-info"><h4>Box Braids</h4><div class="catalogue-tags"><span class="cat-tag fix">Fix Only</span><span class="cat-tag supply">Fix & Supply</span></div></div>
-      </div>
-      <div class="catalogue-card">
-        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Knotless Braids</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
-        <div class="catalogue-info"><h4>Knotless Braids</h4><div class="catalogue-tags"><span class="cat-tag fix">Fix Only</span><span class="cat-tag supply">Fix & Supply</span></div></div>
-      </div>
-      <div class="catalogue-card">
-        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Fulani Braids</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
-        <div class="catalogue-info"><h4>Fulani Braids</h4><div class="catalogue-tags"><span class="cat-tag fix">Fix Only</span><span class="cat-tag supply">Fix & Supply</span></div></div>
-      </div>
-      <div class="catalogue-card">
-        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Cornrows</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
-        <div class="catalogue-info"><h4>Cornrows</h4><div class="catalogue-tags"><span class="cat-tag fix">Fix Only</span><span class="cat-tag supply">Fix & Supply</span></div></div>
-      </div>
-      <div class="catalogue-card">
-        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Passion Twists</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
-        <div class="catalogue-info"><h4>Passion Twists</h4><div class="catalogue-tags"><span class="cat-tag fix">Fix Only</span><span class="cat-tag supply">Fix & Supply</span></div></div>
-      </div>
-      <div class="catalogue-card">
-        <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>Goddess Locs</span><span style="font-size:10px;color:var(--rose-dark);margin-top:2px">Add photo</span></div>
-        <div class="catalogue-info"><h4>Goddess Locs</h4><div class="catalogue-tags"><span class="cat-tag supply">Fix & Supply</span></div></div>
+    <div class="section-label">Lookbook</div>
+    <h2 class="section-title">The catalogue</h2>
+    <p class="section-sub">Real work. Add photos to replace placeholders.</p>
+    <div class="catalogue-grid" id="catalogue-grid"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:#F5F0EC">
+  <div class="section">
+    <div class="about-grid" style="grid-template-columns:1fr">
+      <div class="about-text">
+        <div class="section-label">About</div>
+        <h2>Maxeene Sekao</h2>
+        <p>Based in Old Naledi, Gaborone, Maxeene is a professional mobile hairstylist specialising in braids, twists, locs, and protective styles. She brings the salon experience directly to your door — no travel, no waiting, just quality work done on your schedule.</p>
+        <p>With 98+ styles completed and a growing clientele across Gaborone, Maxeene's work speaks for itself. Follow her on Instagram and TikTok to see her latest looks.</p>
+        <div class="about-details">
+          <div class="about-detail"><span class="icon">📍</span>Old Naledi, Gaborone — travels across the city</div>
+          <div class="about-detail"><span class="icon">🕐</span>Open by appointment only, 24-hour service</div>
+          <div class="about-detail"><span class="icon">💳</span>Deposit via Paytocell or Orange Money</div>
+        </div>
       </div>
     </div>
   </div>
@@ -356,198 +352,504 @@ footer .footer-contact a:hover{color:var(--rose-dark)}
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">Maxeene's Hair Parlour</div>
-    <p>Mobile hairstylist · Gaborone, Botswana</p>
-    <div class="footer-contact">
-      <a href="tel:+26771234567">+267 71 234 567</a>
-      <a href="https://wa.me/26771234567">WhatsApp</a>
+    <div class="footer-links">
+      <a href="tel:+26777847092">+267 77 847 092</a>
+      <a href="https://wa.me/26777847092" target="_blank">WhatsApp</a>
+      <a href="https://instagram.com/maxeene.hair.parlour" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@maxeene.hair.parlour" target="_blank">TikTok</a>
     </div>
-    <p style="margin-top:1.5rem;font-size:11px;opacity:0.5">© 2026 Maxeene's Hair Parlour</p>
+    <p class="footer-copy">© 2026 Maxeene's Hair Parlour · Old Naledi, Gaborone</p>
   </div>
 </footer>
 
-<script>
-const bookings = {};
-let selectedDate = null;
-let selectedTime = null;
-let currentYear, currentMonth;
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/26777847092" class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
+<!-- ADMIN TOGGLE -->
+<button class="admin-toggle" onclick="toggleAdmin()">Admin</button>
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="admin-panel">
+  <div class="admin-header">
+    <h3>Admin</h3>
+    <button class="admin-close" onclick="toggleAdmin()">✕</button>
+  </div>
+  <div id="admin-login-view">
+    <div class="admin-login">
+      <p style="font-size:13px;color:var(--charcoal-mid);margin-bottom:0.5rem">Enter admin password to manage your calendar.</p>
+      <input type="password" id="admin-pw" placeholder="Password">
+      <button class="btn btn-dark" onclick="adminLogin()">Login</button>
+      <p id="admin-err" style="font-size:12px;color:var(--red);display:none">Incorrect password.</p>
+    </div>
+  </div>
+  <div id="admin-main-view" style="display:none">
+    <div class="admin-section">
+      <h4>Upcoming bookings</h4>
+      <div class="upcoming-list" id="upcoming-list"><p style="font-size:13px;color:var(--charcoal-mid)">Loading...</p></div>
+    </div>
+    <div class="admin-section">
+      <h4>Block a day</h4>
+      <div class="block-form">
+        <input type="date" id="block-date-input">
+        <button onclick="blockDay()">Block</button>
+      </div>
+    </div>
+    <div class="admin-section">
+      <h4>Blocked days</h4>
+      <div class="admin-blocked-list" id="admin-blocked-list"><p style="font-size:13px;color:var(--charcoal-mid)">None blocked.</p></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL = 'https://jmykczlwlqfnyltqxbmz.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptyWtjemx3bHFmbnlsdHF4Ym16Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwMjM1MDQsImV4cCI6MjA5ODU5OTUwNH0.WXFXHkS6XDO9ewFF3r7hTOk7BzwjMuiRkN3u24mVdjU';
+const ADMIN_PASSWORD = 'maxeene2026';
+const WA_NUMBER = '26777847092';
+
+const headers = {'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY};
+
+async function dbGet(table, params=''){
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`,{headers});
+  return r.json();
+}
+async function dbPost(table, body){
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}`,{method:'POST',headers:{...headers,'Prefer':'return=representation'},body:JSON.stringify(body)});
+  return r.json();
+}
+async function dbDelete(table, params){
+  await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`,{method:'DELETE',headers});
+}
+
+// STATE
+let bookingsCache = {};
+let blockedDays = new Set();
+let selectedDate = null, selectedTime = null;
+let currentYear, currentMonth;
 const today = new Date();
 currentYear = today.getFullYear();
 currentMonth = today.getMonth();
 
-function toMinutes(t) {
-  const [h, m] = t.split(':').map(Number);
-  return h * 60 + m;
+// SERVICES DATA
+const services = {
+  braids:[
+    {name:'Normal Knotless Braids',variants:[
+      'Midback Small — P280','Midback Medium — P260','Midback Jumbo — P180',
+      'Tailbone Small — P340','Tailbone Medium — P320','Tailbone Jumbo — P220',
+      'Butt Small — P380','Butt Medium — P350','Butt Jumbo — P280',
+      'Thigh Small — P500','Thigh Medium — P450','Thigh Jumbo — P380',
+      'Knee Small — P550','Knee Medium — P480','Knee Jumbo — P400'
+    ],type:'fix'},
+    {name:'Knotless Braids with Curls',variants:[
+      'Shoulder Small — P280','Shoulder Medium — P250',
+      'Midback Small — P300','Midback Medium — P280','Midback Jumbo — P240',
+      'Tailbone Small — P350','Tailbone Medium — P320','Tailbone Jumbo — P280',
+      'Butt Small — P380','Butt Medium — P350','Butt Jumbo — P320'
+    ],type:'fix'},
+    {name:'Goddess Knotless Braids',variants:[
+      'Shoulder Small — P280','Shoulder Medium — P250',
+      'Midback Small — P340','Midback Medium — P320','Midback Jumbo — P280',
+      'Tailbone Small — P360','Tailbone Medium — P350','Tailbone Jumbo — P300',
+      'Butt Small — P380','Butt Medium — P360','Butt Jumbo — P320'
+    ],type:'fix'},
+    {name:'Knotless Braids with Beads',variants:[
+      'Shoulder Small — P280','Shoulder Medium — P250',
+      'Midback Small — P300','Midback Medium — P280','Midback Jumbo — P220',
+      'Tailbone Small — P350','Tailbone Medium — P320','Tailbone Jumbo — P280',
+      'Butt Small — P380','Butt Medium — P350','Butt Jumbo — P300'
+    ],type:'fix'},
+    {name:'Tyla Braids',variants:['Short Fix Only — P280','Long Fix Only — P320'],type:'fix'},
+    {name:'Knotted Bob',variants:['Fix Only — P180'],type:'fix'},
+    {name:'Fulani Cornrows (With Extensions)',variants:[
+      'Shoulder Small — P350','Shoulder Medium — P330',
+      'Midback Small — P420','Midback Medium — P400',
+      'Tailbone Small — P480','Tailbone Medium — P450',
+      'Butt Small — P580','Butt Medium — P560'
+    ],type:'both',note:'Optional add-on: Goddess Curls +P60'},
+  ],
+  braidssupply:[
+    {name:'Goddess French Curls (Any Color)',variants:[
+      'Shoulder Small — P380','Shoulder Medium — P350',
+      'Midback Small — P400','Midback Medium — P380',
+      'Tailbone Small — P550','Tailbone Medium — P480',
+      'Butt Small — P650','Butt Medium — P580',
+      'Thigh Small — P750','Thigh Medium — P650'
+    ],type:'supply'},
+    {name:'Tyla Braids',variants:['Short — P380','Long — P450'],type:'supply'},
+    {name:'Knotted Bob',variants:['Fix & Supply — P250'],type:'supply'},
+  ],
+  twists:[
+    {name:'Standard Twists',variants:[
+      'Midback Small — P280','Midback Medium — P250','Midback Jumbo — P200',
+      'Tailbone Small — P320','Tailbone Medium — P280','Tailbone Jumbo — P250',
+      'Butt Small — P380','Butt Medium — P350','Butt Jumbo — P280',
+      'Knee Small — P460','Knee Medium — P420','Knee Jumbo — P380'
+    ],type:'fix'},
+    {name:'Natural Twists (No Extensions)',variants:['Small — P200','Medium — P180'],type:'fix'},
+    {name:'Invisible Twists on Natural Hair',variants:['Small — P250','Medium — P200'],type:'fix'},
+    {name:'Marly Twists',variants:[
+      'Midback Small Fix — P250','Midback Medium Fix — P200',
+      'Tailbone Small Fix — P300','Tailbone Medium Fix — P280','Tailbone Large Fix — P200',
+      'Butt Small Fix — P350','Butt Medium Fix — P320','Butt Large Fix — P300'
+    ],type:'fix',note:'Optional: French curls +P60/+P90/+P150 by length'},
+  ],
+  twistssupply:[
+    {name:'Marly Twists',variants:[
+      'Midback Small — P400','Midback Medium — P350',
+      'Tailbone Small — P500','Tailbone Medium — P480','Tailbone Large — P400',
+      'Butt Small — P650','Butt Medium — P580','Butt Large — P560'
+    ],type:'supply'},
+    {name:'Natural Twists (With Extensions)',variants:[
+      'Shoulder Small — P380','Shoulder Medium — P350',
+      'Midback Small — P500','Midback Medium — P480'
+    ],type:'supply'},
+  ],
+  locs:[
+    {name:'Invisible Locs',variants:[
+      'Shoulder Small — P300','Shoulder Medium — P250','Shoulder Large — P200',
+      'Tailbone Small — P350','Tailbone Medium — P300','Tailbone Large — P250',
+      'Butt Small — P380','Butt Medium — P350','Butt Large — P280'
+    ],type:'fix',note:'Optional: Curls at ends +P50/+P90/+P120'},
+    {name:'Butterfly Locs',variants:[
+      'Shoulder — P250','Midback — P320','Tailbone — P500','Butt — P600'
+    ],type:'fix'},
+  ],
+  locssupply:[
+    {name:'Butterfly Locs',variants:['Shoulder — P350','Midback — P450','Tailbone — P650','Butt — P750'],type:'supply'},
+    {name:'Butterfly Locs with French Curls',variants:['Tailbone — P750','Butt — P850','Thigh — P1050'],type:'supply'},
+    {name:'Soft Locs with French Curls',variants:['Tailbone — P550','Butt — P650'],type:'supply'},
+    {name:'Goddess / Soft Locs',variants:['Tailbone — P450','Butt — P550'],type:'supply'},
+    {name:'Twisted Locs',variants:['Midback — P460','Tailbone — P550','Butt — P650'],type:'supply'},
+    {name:'Marley Locs',variants:['Midback — P550','Tailbone — P650','Butt — P750'],type:'supply'},
+  ],
+  weaves:[
+    {name:'Standard Sew-In',variants:['Fix Only — P280'],type:'fix'},
+    {name:'Lemonade Sew-In',variants:['Fix Only — P300'],type:'fix'},
+    {name:'Cornrows with Weave',variants:['Fix Only — P280'],type:'fix'},
+  ],
+  weavessupply:[
+    {name:'Standard Sew-In',variants:['Fix & Supply — P380'],type:'supply'},
+    {name:'Lemonade Sew-In',variants:['Fix & Supply — P450'],type:'supply'},
+    {name:'Cornrows with Weave',variants:['Fix & Supply — P380'],type:'supply',note:'Optional: Curling +P30'},
+  ]
+};
+
+const catalogue = [
+  {name:'Knotless Braids',tags:['fix','supply']},
+  {name:'Knotless Braids with Curls',tags:['fix']},
+  {name:'Goddess Knotless Braids',tags:['fix']},
+  {name:'Fulani Cornrows',tags:['fix']},
+  {name:'Tyla Braids',tags:['fix','supply']},
+  {name:'Standard Twists',tags:['fix']},
+  {name:'Marly Twists',tags:['fix','supply']},
+  {name:'Invisible Locs',tags:['fix']},
+  {name:'Butterfly Locs',tags:['fix','supply']},
+  {name:'Goddess Locs',tags:['supply']},
+  {name:'Knotted Bob',tags:['fix','supply']},
+  {name:'Cornrows with Weave',tags:['fix','supply']},
+];
+
+function buildPrices(){
+  const fixEl = document.getElementById('fix-only-prices');
+  const supplyEl = document.getElementById('fix-supply-prices');
+
+  const fixCats = [
+    {label:'Braids & Cornrows',items:[...services.braids]},
+    {label:'Twists',items:[...services.twists]},
+    {label:'Locs',items:[...services.locs]},
+    {label:'Weaves & Sew-Ins',items:[...services.weaves]},
+  ];
+  const supplyCats = [
+    {label:'Braids & Cornrows',items:[...services.braidssupply]},
+    {label:'Twists',items:[...services.twistssupply]},
+    {label:'Locs',items:[...services.locssupply]},
+    {label:'Weaves & Sew-Ins',items:[...services.weavessupply]},
+  ];
+
+  [fixCats,supplyCats].forEach((cats,idx)=>{
+    const el = idx===0?fixEl:supplyEl;
+    const cls = idx===0?'price-fix':'price-supply';
+    cats.forEach(cat=>{
+      // Category — collapsible, contains style sub-accordions
+      const catWrap = document.createElement('div');
+      catWrap.className = 'price-category';
+
+      const stylesHtml = cat.items.map(item=>{
+        const note = item.note?`<div style="font-size:11px;color:var(--rose-dark);margin:4px 0 2px">✦ ${item.note}</div>`:'';
+        const prices = item.variants.map(v=>{
+          const parts = v.split(' — ');
+          const label = parts[0];
+          const price = parts[1]||'';
+          return `<div class="price-item ${cls}"><span class="svc-name">${label}</span><span class="svc-price">${price}</span></div>`;
+        }).join('');
+        return `<div class="price-category" style="border-bottom:1px solid #f0ebe8">
+          <div class="price-cat-header" style="padding:0.7rem 1.2rem;font-size:13px" onclick="toggleStyle(this)">
+            <span>${item.name}</span><span class="arrow">▼</span>
+          </div>
+          <div class="price-cat-body" style="padding:0 1.2rem 0.6rem">${note}${prices}</div>
+        </div>`;
+      }).join('');
+
+      catWrap.innerHTML=`
+        <div class="price-cat-header" onclick="toggleStyle(this)">
+          <span style="font-weight:500">${cat.label}</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="price-cat-body" style="padding:0">${stylesHtml}</div>`;
+      el.appendChild(catWrap);
+    });
+  });
+
+  // Build service dropdown
+  const sel = document.getElementById('f-service');
+  const allCats = [
+    {label:'Braids & Cornrows — Fix Only',items:services.braids},
+    {label:'Braids — Fix & Supply',items:services.braidssupply},
+    {label:'Twists — Fix Only',items:services.twists},
+    {label:'Twists — Fix & Supply',items:services.twistssupply},
+    {label:'Locs — Fix Only',items:services.locs},
+    {label:'Locs — Fix & Supply',items:services.locssupply},
+    {label:'Weaves — Fix Only',items:services.weaves},
+    {label:'Weaves — Fix & Supply',items:services.weavessupply},
+  ];
+  allCats.forEach(cat=>{
+    const og = document.createElement('optgroup');
+    og.label = cat.label;
+    cat.items.forEach(item=>{
+      item.variants.forEach(v=>{
+        const o = document.createElement('option');
+        o.value = `${item.name} — ${v}`;
+        o.textContent = `${item.name} — ${v}`;
+        og.appendChild(o);
+      });
+    });
+    sel.appendChild(og);
+  });
 }
 
-function getDayKey(y, m, d) {
-  return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+function toggleStyle(el){
+  const body = el.nextElementSibling;
+  const arrow = el.querySelector('.arrow');
+  body.classList.toggle('open');
+  arrow.style.transform = body.classList.contains('open')?'rotate(180deg)':'rotate(0deg)';
 }
 
-function getDayStatus(key) {
-  const slots = bookings[key] || [];
-  if (slots.length === 0) return 'available';
-  if (slots.length === 1) return 'partial';
-  return 'full';
+function buildCatalogue(){
+  const grid = document.getElementById('catalogue-grid');
+  catalogue.forEach(item=>{
+    const tags = item.tags.map(t=>`<span class="cat-tag ${t}">${t==='fix'?'Fix Only':'Fix & Supply'}</span>`).join('');
+    grid.innerHTML+=`<div class="catalogue-card">
+      <div class="catalogue-img-placeholder"><span class="ph-icon">✦</span><span>${item.name}</span><span style="font-size:10px;color:var(--rose-dark)">Add photo</span></div>
+      <div class="catalogue-info"><h4>${item.name}</h4><div class="catalogue-tags">${tags}</div></div>
+    </div>`;
+  });
 }
 
-function isTimeConflict(key, newTime) {
-  const slots = bookings[key] || [];
-  const newMin = toMinutes(newTime);
-  for (const t of slots) {
-    if (newMin < toMinutes(t) + 420 && newMin >= toMinutes(t)) return true;
-    if (toMinutes(t) < newMin + 420 && toMinutes(t) >= newMin) return true;
-  }
-  return false;
+// CALENDAR
+function toMin(t){const[h,m]=t.split(':').map(Number);return h*60+m;}
+function dayKey(y,m,d){return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;}
+
+async function loadMonthData(){
+  const from = dayKey(currentYear,currentMonth,1);
+  const to = dayKey(currentYear,currentMonth,new Date(currentYear,currentMonth+1,0).getDate());
+  const [bk,bl] = await Promise.all([
+    dbGet('bookings',`booking_date=gte.${from}&booking_date=lte.${to}&select=booking_date,booking_time`),
+    dbGet('blocked_days',`blocked_date=gte.${from}&blocked_date=lte.${to}&select=blocked_date`)
+  ]);
+  bookingsCache={};
+  if(Array.isArray(bk)) bk.forEach(b=>{
+    const k=b.booking_date;
+    if(!bookingsCache[k])bookingsCache[k]=[];
+    bookingsCache[k].push(b.booking_time.slice(0,5));
+  });
+  blockedDays=new Set(Array.isArray(bl)?bl.map(b=>b.blocked_date):[]);
 }
 
-function renderCalendar() {
-  const grid = document.getElementById('calendar-grid');
-  const headers = grid.querySelectorAll('.cal-day-header');
-  grid.innerHTML = '';
-  headers.forEach(h => grid.appendChild(h.cloneNode(true)));
-
-  const label = document.getElementById('cal-month-label');
-  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  label.textContent = `${months[currentMonth]} ${currentYear}`;
-
-  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-  for (let i = 0; i < firstDay; i++) {
-    const empty = document.createElement('div');
-    empty.className = 'cal-day empty';
-    grid.appendChild(empty);
-  }
-
-  for (let d = 1; d <= daysInMonth; d++) {
-    const key = getDayKey(currentYear, currentMonth, d);
-    const status = getDayStatus(key);
-    const dayDate = new Date(currentYear, currentMonth, d);
-    const isPast = dayDate < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-
-    const cell = document.createElement('div');
-    cell.className = 'cal-day';
-    if (isPast) {
-      cell.classList.add('past');
-    } else {
-      cell.classList.add(status);
-    }
-    if (selectedDate === key) cell.classList.add('selected');
-
-    const num = document.createElement('div');
-    num.className = 'day-num';
-    num.textContent = d;
-    cell.appendChild(num);
-
-    const dots = document.createElement('div');
-    dots.className = 'day-dots';
-    const slots = bookings[key] || [];
-    for (let s = 0; s < slots.length; s++) {
-      const dot = document.createElement('div');
-      dot.className = 'dot';
-      dot.style.background = s === 0 ? 'var(--amber)' : 'var(--red)';
-      dots.appendChild(dot);
-    }
-    cell.appendChild(dots);
-
-    if (!isPast && status !== 'full') {
-      cell.addEventListener('click', () => selectDay(key, d));
-    }
-
+function renderCalendar(){
+  const grid=document.getElementById('calendar-grid');
+  grid.innerHTML='';
+  ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d=>{
+    const h=document.createElement('div');h.className='cal-day-header';h.textContent=d;grid.appendChild(h);
+  });
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('cal-month-label').textContent=`${months[currentMonth]} ${currentYear}`;
+  const first=new Date(currentYear,currentMonth,1).getDay();
+  const days=new Date(currentYear,currentMonth+1,0).getDate();
+  for(let i=0;i<first;i++){const e=document.createElement('div');e.className='cal-day empty';grid.appendChild(e);}
+  for(let d=1;d<=days;d++){
+    const k=dayKey(currentYear,currentMonth,d);
+    const slots=bookingsCache[k]||[];
+    const isPast=new Date(currentYear,currentMonth,d)<new Date(today.getFullYear(),today.getMonth(),today.getDate());
+    const isBlocked=blockedDays.has(k);
+    let status=slots.length===0?'available':slots.length===1?'partial':'full';
+    const cell=document.createElement('div');
+    cell.className='cal-day';
+    if(isPast)cell.classList.add('past');
+    else if(isBlocked)cell.classList.add('blocked');
+    else cell.classList.add(status);
+    if(selectedDate===k)cell.classList.add('selected');
+    cell.innerHTML=`<div class="day-num">${d}</div><div class="day-dots">${slots.map((_,i)=>`<div class="dot" style="background:${i===0?'var(--amber)':'var(--red)'}"></div>`).join('')}</div>`;
+    if(!isPast&&!isBlocked&&status!=='full')cell.addEventListener('click',()=>selectDay(k,d));
     grid.appendChild(cell);
   }
 }
 
-function selectDay(key, d) {
-  selectedDate = key;
-  selectedTime = null;
+function selectDay(k,d){
+  selectedDate=k;selectedTime=null;
   renderCalendar();
-
-  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const tp = document.getElementById('time-picker');
-  tp.classList.add('active');
-  document.getElementById('time-picker-title').textContent = `Choose time — ${months[currentMonth]} ${d}`;
-
-  const slots = bookings[key] || [];
-  let subText = '24-hour service. Each appointment takes 5 hrs — next slot opens 7 hours after the first booking.';
-  if (slots.length === 1) {
-    const bookedMin = toMinutes(slots[0]);
-    const nextAvail = `${String(Math.floor((bookedMin + 420) / 60) % 24).padStart(2,'0')}:${String((bookedMin + 420) % 60).padStart(2,'0')}`;
-    subText = `Booked at ${slots[0]} (ends ~${String(Math.floor((bookedMin+300)/60)%24).padStart(2,'0')}:${String((bookedMin+300)%60).padStart(2,'0')}). Next slot available from ${nextAvail}.`;
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('time-picker').classList.add('active');
+  document.getElementById('time-picker-title').textContent=`Choose time — ${months[currentMonth]} ${d}`;
+  const slots=bookingsCache[k]||[];
+  let sub='24-hour service. Each appointment is 5 hrs + 2 hrs rest = next slot opens 7 hours later.';
+  if(slots.length===1){
+    const bMin=toMin(slots[0]);
+    const nxt=`${String(Math.floor((bMin+420)/60)%24).padStart(2,'0')}:${String((bMin+420)%60).padStart(2,'0')}`;
+    const end=`${String(Math.floor((bMin+300)/60)%24).padStart(2,'0')}:${String((bMin+300)%60).padStart(2,'0')}`;
+    sub=`Booked at ${slots[0]} (ends ~${end}). Next slot available from ${nxt}.`;
   }
-  document.getElementById('time-picker-sub').textContent = subText;
-  document.getElementById('time-warning').style.display = 'none';
+  document.getElementById('time-picker-sub').textContent=sub;
+  document.getElementById('time-warning').style.display='none';
   document.getElementById('booking-form').classList.remove('active');
   document.getElementById('booking-success').classList.remove('active');
 }
 
-function confirmTime() {
-  const timeVal = document.getElementById('time-input').value;
-  if (!timeVal) return;
-
-  const warn = document.getElementById('time-warning');
-  if (isTimeConflict(selectedDate, timeVal)) {
-    warn.textContent = 'That time is within 2 hours of an existing booking. Please pick another time.';
-    warn.style.display = 'block';
-    return;
+function isConflict(k,t){
+  const slots=bookingsCache[k]||[];
+  const nm=toMin(t);
+  for(const s of slots){
+    const sm=toMin(s);
+    if(nm>=sm&&nm<sm+420)return true;
+    if(sm>=nm&&sm<nm+420)return true;
   }
-  warn.style.display = 'none';
-  selectedTime = timeVal;
-
-  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const [y, m, d] = selectedDate.split('-');
-  const form = document.getElementById('booking-form');
-  form.classList.add('active');
-  document.getElementById('form-title').textContent = `Your details — ${months[parseInt(m)-1]} ${parseInt(d)}, ${timeVal}`;
-  form.scrollIntoView({behavior:'smooth', block:'nearest'});
+  return false;
 }
 
-function submitBooking() {
-  const name = document.getElementById('f-name').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  const location = document.getElementById('f-location').value.trim();
-  const service = document.getElementById('f-service').value;
-
-  if (!name || !phone || !location || !service) {
-    alert('Please fill in all fields.');
-    return;
-  }
-
-  if (!bookings[selectedDate]) bookings[selectedDate] = [];
-  bookings[selectedDate].push(selectedTime);
-
-  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const [y, m, d] = selectedDate.split('-');
-  document.getElementById('success-msg').textContent =
-    `${name} · ${months[parseInt(m)-1]} ${parseInt(d)}, ${currentYear} at ${selectedTime} · ${service} · ${location}`;
-
-  document.getElementById('time-picker').classList.remove('active');
-  document.getElementById('booking-form').classList.remove('active');
-  document.getElementById('booking-success').classList.add('active');
-
-  document.getElementById('f-name').value = '';
-  document.getElementById('f-phone').value = '';
-  document.getElementById('f-location').value = '';
-  document.getElementById('f-service').value = '';
-
-  selectedDate = null;
-  selectedTime = null;
-  renderCalendar();
+function toggleLocation(){
+  const type = document.getElementById('f-appt-type').value;
+  const locGroup = document.getElementById('f-location-group');
+  locGroup.style.display = type === 'home' ? 'flex' : 'none';
+  if(type === 'salon') document.getElementById('f-location').value = 'Old Naledi, Gaborone';
 }
 
-document.getElementById('prev-month').addEventListener('click', () => {
-  currentMonth--;
-  if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+function confirmTime(){
+  const t=document.getElementById('time-input').value;
+  if(!t)return;
+  const warn=document.getElementById('time-warning');
+  if(isConflict(selectedDate,t)){
+    warn.textContent='That time conflicts with an existing booking (7-hour window). Please choose another time.';
+    warn.style.display='block';return;
+  }
+  warn.style.display='none';
+  selectedTime=t;
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const[,m,d]=selectedDate.split('-');
+  document.getElementById('booking-form').classList.add('active');
+  document.getElementById('form-title').textContent=`Your details — ${months[parseInt(m)-1]} ${parseInt(d)}, ${t}`;
+  document.getElementById('booking-form').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+async function submitBooking(){
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const apptType=document.getElementById('f-appt-type').value;
+  const loc=document.getElementById('f-location').value.trim();
+  const svc=document.getElementById('f-service').value;
+  if(!name||!phone||!apptType||!svc){alert('Please fill in all fields.');return;}
+  if(apptType==='home'&&!loc){alert('Please enter your address.');return;}
+  const locLabel = apptType==='home'?`📍 ${loc}` : '📍 Coming to Old Naledi';
+  const btn=document.getElementById('confirm-btn');
+  btn.disabled=true;btn.textContent='Booking...';
+  try{
+    await dbPost('bookings',{customer_name:name,phone,location:loc,service:svc,booking_date:selectedDate,booking_time:selectedTime});
+    if(!bookingsCache[selectedDate])bookingsCache[selectedDate]=[];
+    bookingsCache[selectedDate].push(selectedTime);
+    const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const[y,m,d]=selectedDate.split('-');
+    const dateStr=`${months[parseInt(m)-1]} ${parseInt(d)}, ${y}`;
+    document.getElementById('success-msg').textContent=`${name} · ${dateStr} at ${selectedTime} · ${svc} · ${loc}`;
+    // Google Calendar link
+    const gcalDate=selectedDate.replace(/-/g,'');
+    const[hh,mm]=selectedTime.split(':');
+    const endH=String((parseInt(hh)+5)%24).padStart(2,'0');
+    const gcalLink=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Hair+Appointment+%40+Maxeene%27s&dates=${gcalDate}T${hh}${mm}00/${gcalDate}T${endH}${mm}00&details=Service:+${encodeURIComponent(svc)}+%7C+Maxeene+%2B267+77+847+092&location=Your+location:+${encodeURIComponent(loc)}`;
+    document.getElementById('gcal-link').href=gcalLink;
+    // WhatsApp notification to Maxeene
+    const waMsg=encodeURIComponent(`🗓 New Booking!\nName: ${name}\nPhone: ${phone}\nDate: ${dateStr} at ${selectedTime}\nService: ${svc}\n${locLabel}`);
+    window.open(`https://wa.me/${WA_NUMBER}?text=${waMsg}`,'_blank');
+    document.getElementById('time-picker').classList.remove('active');
+    document.getElementById('booking-form').classList.remove('active');
+    document.getElementById('booking-success').classList.add('active');
+    document.getElementById('f-name').value='';document.getElementById('f-phone').value='';
+    document.getElementById('f-location').value='';document.getElementById('f-service').value='';
+    selectedDate=null;selectedTime=null;
+    renderCalendar();
+  }catch(e){alert('Something went wrong. Please try again.');
+  }finally{btn.disabled=false;btn.textContent='Confirm booking';}
+}
+
+// ADMIN
+function toggleAdmin(){document.getElementById('admin-panel').classList.toggle('open');}
+function adminLogin(){
+  const pw=document.getElementById('admin-pw').value;
+  if(pw===ADMIN_PASSWORD){
+    document.getElementById('admin-login-view').style.display='none';
+    document.getElementById('admin-main-view').style.display='block';
+    loadAdminData();
+  }else{document.getElementById('admin-err').style.display='block';}
+}
+async function loadAdminData(){
+  const today2=new Date().toISOString().split('T')[0];
+  const [bk,bl]=await Promise.all([
+    dbGet('bookings',`booking_date=gte.${today2}&order=booking_date.asc,booking_time.asc&select=*`),
+    dbGet('blocked_days',`order=blocked_date.asc&select=*`)
+  ]);
+  const ul=document.getElementById('upcoming-list');
+  ul.innerHTML='';
+  if(Array.isArray(bk)&&bk.length){
+    bk.forEach(b=>{
+      ul.innerHTML+=`<div class="upcoming-item"><strong>${b.booking_date} at ${b.booking_time.slice(0,5)}</strong>${b.customer_name} · ${b.phone}<br>${b.service}<br>📍 ${b.location}</div>`;
+    });
+  }else{ul.innerHTML='<p style="font-size:13px;color:var(--charcoal-mid)">No upcoming bookings.</p>';}
+  const bl2=document.getElementById('admin-blocked-list');
+  bl2.innerHTML='';
+  if(Array.isArray(bl)&&bl.length){
+    bl.forEach(b=>{
+      bl2.innerHTML+=`<div class="blocked-item"><span>${b.blocked_date}</span><button class="unblock-btn" onclick="unblockDay('${b.blocked_date}')">Remove</button></div>`;
+    });
+  }else{bl2.innerHTML='<p style="font-size:13px;color:var(--charcoal-mid)">None blocked.</p>';}
+}
+async function blockDay(){
+  const d=document.getElementById('block-date-input').value;
+  if(!d)return;
+  await dbPost('blocked_days',{blocked_date:d});
+  blockedDays.add(d);
   renderCalendar();
+  loadAdminData();
+}
+async function unblockDay(d){
+  await dbDelete('blocked_days',`blocked_date=eq.${d}`);
+  blockedDays.delete(d);
+  renderCalendar();
+  loadAdminData();
+}
+
+// NAV MONTHS
+document.getElementById('prev-month').addEventListener('click',async()=>{
+  currentMonth--;if(currentMonth<0){currentMonth=11;currentYear--;}
+  await loadMonthData();renderCalendar();
 });
-document.getElementById('next-month').addEventListener('click', () => {
-  currentMonth++;
-  if (currentMonth > 11) { currentMonth = 0; currentYear++; }
-  renderCalendar();
+document.getElementById('next-month').addEventListener('click',async()=>{
+  currentMonth++;if(currentMonth>11){currentMonth=0;currentYear++;}
+  await loadMonthData();renderCalendar();
 });
 
-renderCalendar();
+// INIT
+buildPrices();
+buildCatalogue();
+loadMonthData().then(renderCalendar);
 </script>
 </body>
 </html>
